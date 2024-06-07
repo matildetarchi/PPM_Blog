@@ -5,11 +5,9 @@
 
 
 {% block content %}
-    current user: {{ user.id }}
-    post author: {{ post.author.id }}
     <h1>{{ post.title }} </h1>
     <small> By: {{ post.author.first_name }}
-        {{ post.author.last_name }} </small> <br>
+            {{ post.author.last_name }} </small> <br>
     <hr>
     <br>
     {{ post.body }}
