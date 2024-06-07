@@ -1,0 +1,31 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1> Most Popular Now </h1>
+    <div class="row">
+        {% for post in object_list %}
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <a href="{% url 'category' post.category %}" class="btn btn-secondary btn-sm" >{{ post.category }}</a>
+                        <p class="card-text">{{ post.description }}</p>
+                        <a href="{% url 'article' post.pk %}" class="btn btn-primary">See the post</a>
+                        {% if user.id == post.author.id %}
+                            <br><br>
+                            <a href="{% url 'update_post' post.pk %}" class="btn btn-secondary btn-sm" >Update Post</a>
+                            <a href="{% url 'delete_post' post.pk %}" class="btn btn-secondary btn-sm">Delete Post</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            {% if forloop.counter|divisibleby:2 and not forloop.last %}
+                </div><div class="row">
+            {% endif %}
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
