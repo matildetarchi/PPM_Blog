@@ -10,6 +10,10 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ post.title }}</h5>
                         <a href="{% url 'category' post.category %}" class="btn btn-secondary btn-sm" >{{ post.category }}</a>
+
+
+                        <small> By: {{ post.author.first_name }}
+                            {{ post.author.last_name }} </small> <br>
                         <p class="card-text">{{ post.description }}</p>
                         <a href="{% url 'article' post.pk %}" class="btn btn-primary">See the post</a>
                     </div>

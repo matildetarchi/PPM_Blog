@@ -18,6 +18,8 @@
         <a href="{% url 'update_post' post.pk %}" class="btn btn-secondary btn-sm" >Update Post</a>
         <a href="{% url 'delete_post' post.pk %}" class="btn btn-secondary btn-sm">Delete Post</a>
     {% endif %}
+
+    <br><br>
     <a href=" {% url 'home' %}"> Back </a>
 
 {% endblock %}
