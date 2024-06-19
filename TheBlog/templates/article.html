@@ -10,6 +10,11 @@
             {{ post.author.last_name }} </small> <br>
     <hr>
     <br>
+    {% if post.image %}
+        <img src="{{ post.image.url }}">
+    {% endif %}
+
+    <br><br>
     {{ post.body|safe }}
 
     <br><br>

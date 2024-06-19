@@ -1,3 +1,4 @@
+
 from django import forms
 from .models import Post, Category, Comment
 
@@ -12,7 +13,7 @@ for item in categories:
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'title_tag', 'author', 'category', 'description', 'body')
+        fields = ('title', 'title_tag', 'author', 'category', 'description', 'body', 'image')
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
