@@ -20,9 +20,6 @@
     {% endif %}
 
     <br><br>
-    <a href=" {% url 'home' %}"> Back </a>
-
-    <br><br>
 
     <form action="{% url 'like_post' post.pk %}" method="POST">
         {% csrf_token %}
@@ -40,7 +37,28 @@
 
         - {{ total_likes }} Likes
     </form>
+    <br><br>
+    <h2> Comments</h2>
 
+    {% if not post.comments.all %}
+        No Comments yet, <a href="{% url 'add_comment' post.pk %}"> Add Comment </a>
+
+    {% else %}
+        {% for comment in post.comments.all %}
+            <strong>
+                {{ comment.name }}
+                {{ comment.date_added }}
+            </strong>
+                <br>
+                {{ comment.body }}
+                <br><br>
+        {% endfor %}
+        <hr>
+        <a href="{% url 'add_comment' post.pk %}"> Add Comment </a>
+    {% endif %}
+
+    <br>
+    <a href=" {% url 'home' %}"> Back </a>
 
 
 

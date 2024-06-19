@@ -2,8 +2,8 @@ import warnings
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post, Category
-from .forms import PostForm, EditForm
+from .models import Post, Category, Comment
+from .forms import PostForm, EditForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
@@ -75,3 +75,15 @@ def CategoryView(request, Fashion):
     category_posts = Post.objects.filter(category=Fashion.replace('-', ' '))
     return render(request, 'categories.html',
                   {'Fashion': Fashion.title().replace('-', ' '), 'category_posts': category_posts})
+
+
+class AddCommentView(CreateView):
+    model = Comment
+    form_class = CommentForm
+    template_name = 'add_comment.html'
+
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)
+
+    success_url = reverse_lazy('home')
