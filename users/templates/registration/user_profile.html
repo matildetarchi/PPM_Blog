@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>User Profile</h1>
+    {{ page_user }}
+
+
+    {% if page_user.profile_image %}
+        <img src="{{ page_user.profile_image.url }}" width="100" height="150">
+    {% endif %}
+
+    {{ page_user.user.first_name }}
+    {{ page_user.user.last_name }}
+    {{ page_user.profile.bio }}
+
+
+{% endblock %}

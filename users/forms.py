@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
+from TheBlog.models import Profile
 
 
 class SignUpForm(UserCreationForm):
@@ -44,3 +45,12 @@ class PasswordChangingForm(PasswordChangeForm):
     class Meta:
         model = User
         fields = ('old_password', 'new_password1', 'new_password2')
+
+
+class ProfilePageForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['bio', 'profile_image']
+        widgets = {
+            'bio': forms.Textarea(attrs={'class': 'form-control'}),
+        }
