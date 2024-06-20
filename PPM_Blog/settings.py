@@ -133,3 +133,7 @@ SILENCED_SYSTEM_CHECKS = ["ckeditor.W001"]
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://ppmblog-production.up.railway.app',
+]
