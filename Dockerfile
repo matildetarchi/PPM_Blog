@@ -16,8 +16,6 @@ WORKDIR /app
 # Copia il file requirements.txt e installa le dipendenze
 COPY requirements.txt ./
 
-COPY local_package_dir /app/TheBlog
-
 # Install dependencies
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
