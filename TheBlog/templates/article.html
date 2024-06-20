@@ -46,15 +46,28 @@
             <small><a href="{% url 'login' %}">Login</a>to Like or Unlike the post</small>
         {% endif %}
 
-        - {{ total_likes }} Likes
+        {{ total_likes }} Likes
     </form>
     <br><br>
 
     {% if post.author.profile.profile_image %}
-        <img src="{{ post.author.profile.profile_image.url }}" width="100" height="150">
+        <div class="card mb-3" style="max-width: 350px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="{{ post.author.profile.profile_image.url }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Post Creator</h5>
+                      <p class="card-text" style="font-weight: bold"> {{ post.author.first_name }} {{ post.author.last_name }}</p>
+                      <p class="card-text"><small class="text-body-secondary"><a href="{% url 'show_profile' post.author.profile.id %}"> Go to the Profile Page </a></small></p>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+
     {% endif %}
-    <br><br>
-    <a href="{% url 'show_profile' post.author.profile.id %}"> Profile page </a>
 
     <br><br>
     <h2> Comments</h2>
