@@ -73,7 +73,8 @@
     <h2> Comments</h2>
 
     {% if not post.comments.all %}
-        No Comments yet, <a href="{% url 'add_comment' post.pk %}"> Add Comment </a>
+        There are no Comments yet
+        <br><a href="{% url 'add_comment' post.pk %}"> Add a Comment </a>
 
     {% else %}
         {% for comment in post.comments.all %}

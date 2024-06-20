@@ -57,6 +57,10 @@ class CreatePostView(CreateView):
     form_class = PostForm
     template_name = 'add_post.html'
 
+    def form_valid(self, form):
+        post = form.save()
+        return HttpResponseRedirect(reverse('article', args=[post.pk]))
+
 
 class UpdatePostView(UpdateView):
     model = Post
@@ -67,8 +71,7 @@ class UpdatePostView(UpdateView):
 class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
-    success_url = reverse_lazy('home')  # metti invece che rimandare li,
-    # un coso che dice che è stato eliminato con successo
+    success_url = reverse_lazy('home')
 
 
 def CategoryView(request, Fashion):
