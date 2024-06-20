@@ -15,6 +15,11 @@ WORKDIR /app
 
 # Copia il file requirements.txt e installa le dipendenze
 COPY requirements.txt ./
+
+COPY local_package_dir /app/PPM_Blog
+
+# Install dependencies
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # Copia il resto del codice dell'applicazione
