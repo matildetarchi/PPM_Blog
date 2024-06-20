@@ -1,19 +1,12 @@
 asgiref==3.8.1
-blinker @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/blinker_1699238202041/work
-click @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/click_1699237822453/work
 Django==5.0.6
 django-ckeditor==6.7.1
 django-js-asset==2.2.0
-Flask @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_b6zka5i2cn/croot/flask_1716545886197/work
 gunicorn==22.0.0
-itsdangerous @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_00jdi1gu23/croot/itsdangerous_1716533346702/work
-Jinja2 @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/jinja2_1707339916030/work
-MarkupSafe @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/markupsafe_1707339878470/work
 packaging==24.1
 pillow==10.3.0
 setuptools==69.5.1
 sqlparse==0.5.0
-Werkzeug @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_5bnbxlhunm/croot/werkzeug_1716533322814/work
 wheel==0.43.0
 whitenoise==6.7.0
 
