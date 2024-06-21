@@ -36,37 +36,23 @@
                               <a class="nav-link" href=" {% url 'add_post' %}"> Create a New Post </a>
                             </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Section menu
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{% url 'home' %}"> All articles </a></li>
-
-                                    {% for item in cat_menu %}
-                                        <li><a class="dropdown-item" href="{% url 'category' item|slugify %}"> {{ item }} </a></li>
-                                    {% endfor %}
-                                </ul>
+                            <li class="nav-item">
+                                <button type="button" class="btn btn-light" id="openModalBtn">
+                                    Section Info
+                                </button>
                             </li>
-
 
                         {% else %}
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{% url 'home' %}"> Home </a>
                             </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Section menu
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{% url 'home' %}"> All articles </a></li>
-
-                                    {% for item in cat_menu %}
-                                        <li><a class="dropdown-item" href="{% url 'category' item|slugify %}"> {{ item }} </a></li>
-                                    {% endfor %}
-                                </ul>
+                            <li class="nav-item">
+                                <button type="button" class="btn btn-light" id="openModalBtn">
+                                    Section Info
+                                </button>
                             </li>
+
 
                         {% endif %}
 
@@ -119,16 +105,52 @@
                         </div>
                     {% endif %}
 
-
                 </div>
             </div>
         </nav>
+
+        <div id="noteModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h5>How to see Posts divided into categories</h5>
+                <p> You can easily click on the Category buttons that you can see in the Post Preview, enjoy! </p>
+                <button type="button" class="btn-close-modal"> Close </button>
+            </div>
+        </div>
+
         <div class="container margin-decor">
             {% block content %}
 
             {% endblock %}
         </div>
 
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var modal = document.getElementById("noteModal");
+                var btn = document.getElementById("openModalBtn");
+                var span = document.getElementsByClassName("close-btn")[0];
+                var closeBtn = document.getElementsByClassName("btn-close-modal")[0];
+
+                btn.onclick = function() {
+                    modal.style.display = "block";
+                }
+
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+
+                closeBtn.onclick = function() {
+                    modal.style.display = "none";
+                }
+
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            });
+        </script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
