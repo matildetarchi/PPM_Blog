@@ -67,6 +67,10 @@ class UpdatePostView(UpdateView):
     form_class = EditForm
     template_name = 'update_post.html'
 
+    def form_valid(self, form):
+        post = form.save()
+        return HttpResponseRedirect(reverse('article', args=[post.pk]))
+
 
 class DeletePostView(DeleteView):
     model = Post
